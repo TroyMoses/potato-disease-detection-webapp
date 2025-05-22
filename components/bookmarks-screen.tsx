@@ -139,36 +139,40 @@ export function BookmarksScreen() {
           onOpenChange={(open) => !open && setSelectedDisease(null)}
         >
           {selectedDisease && (
-            <DialogContent className="max-w-3xl bg-zinc-900 border-zinc-800 text-white max-h-[90vh] flex flex-col">
-              <DialogHeader className="flex-shrink-0">
-                <DialogTitle className="text-2xl">
-                  {selectedDisease.name}
-                </DialogTitle>
-              </DialogHeader>
+            <DialogContent className="bg-zinc-900 border-zinc-800 text-white p-0 sm:p-6 max-w-3xl w-full h-[95vh] sm:h-auto sm:max-h-[90vh] flex flex-col">
+              <div className="flex flex-col h-full overflow-hidden">
+                <DialogHeader className="p-4 sm:p-0 flex-shrink-0">
+                  <DialogTitle className="text-xl sm:text-2xl">
+                    {selectedDisease.name}
+                  </DialogTitle>
+                </DialogHeader>
 
-              <div className="relative w-full h-64 my-4 flex-shrink-0">
-                <Image
-                  src={selectedDisease.imageUrl || "/placeholder.svg"}
-                  alt={selectedDisease.name}
-                  fill
-                  className="object-cover rounded-md"
-                />
-              </div>
-
-              <ScrollArea className="flex-grow overflow-auto pr-4 mb-4">
-                <div className="whitespace-pre-line">
-                  {selectedDisease.full}
+                <div className="relative w-full h-48 sm:h-64 flex-shrink-0">
+                  <Image
+                    src={selectedDisease.imageUrl || "/placeholder.svg"}
+                    alt={selectedDisease.name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-              </ScrollArea>
 
-              <div className="flex justify-between mt-2 pt-4 border-t border-white/10 flex-shrink-0">
-                <Button
-                  variant="outline"
-                  onClick={() => setSelectedDisease(null)}
-                  className="bg-white/10 border-white/20 hover:bg-white/20 cursor-pointer"
-                >
-                  Close
-                </Button>
+                <div className="flex-1 overflow-hidden flex flex-col min-h-0">
+                  <ScrollArea className="flex-1 p-4 sm:pr-4 overflow-y-auto">
+                    <div className="whitespace-pre-line pb-4">
+                      {selectedDisease.full}
+                    </div>
+                  </ScrollArea>
+                </div>
+
+                <div className="p-4 sm:pt-4 border-t border-white/10 flex-shrink-0 bg-zinc-900 sticky bottom-0 left-0 right-0">
+                  <Button
+                    variant="outline"
+                    onClick={() => setSelectedDisease(null)}
+                    className="w-full bg-white/10 border-white/20 hover:bg-white/20 cursor-pointer"
+                  >
+                    Close
+                  </Button>
+                </div>
               </div>
             </DialogContent>
           )}

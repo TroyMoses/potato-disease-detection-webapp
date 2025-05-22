@@ -54,6 +54,13 @@ export function PredictScreen() {
     setPreview(null);
   };
 
+  // Helper function to calculate confidence percentage
+  const getConfidencePercentage = (confidenceValue: string): number => {
+    const confidence = Number.parseFloat(confidenceValue);
+    // Check if confidence is already in percentage format (>1) or decimal format (0-1)
+    return confidence > 1 ? confidence : confidence * 100;
+  };
+
   const analyzeImage = async () => {
     if (!selectedFile) return;
 
@@ -74,16 +81,17 @@ export function PredictScreen() {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
         setData(res.data);
+        const confidencePercentage = getConfidencePercentage(
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
+          res.data.confidence
+        );
         toast.success("Analysis Complete", {
           description: `Detected: ${
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-expect-error
             res.data.class
-          } with ${Number.parseFloat(
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
-            res.data.confidence
-          ).toFixed(1)}% confidence`,
+          } with ${confidencePercentage.toFixed(1)}% confidence`,
           duration: 3000,
         });
       }
@@ -153,16 +161,17 @@ export function PredictScreen() {
           // @ts-expect-error
           res.data
         );
+        const confidencePercentage = getConfidencePercentage(
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
+          res.data.confidence
+        );
         toast.success("Analysis Complete", {
           description: `Detected: ${
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-expect-error
             res.data.class
-          } with ${Number.parseFloat(
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
-            res.data.confidence
-          ).toFixed(1)}% confidence`,
+          } with ${confidencePercentage.toFixed(1)}% confidence`,
           duration: 3000,
         });
       }
@@ -183,6 +192,11 @@ export function PredictScreen() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedFile, preview]);
+
+  // Calculate confidence percentage for display and progress bar
+  const confidencePercentage = data
+    ? getConfidencePercentage(data.confidence)
+    : 0;
 
   return (
     <div className="min-h-screen bg-gradient text-white">
@@ -218,7 +232,7 @@ export function PredictScreen() {
                       />
                       <button
                         onClick={clearData}
-                        className="absolute top-2 right-2 bg-black/50 p-2 rounded-full"
+                        className="absolute top-2 right-2 bg-black/50 p-2 rounded-full cursor-pointer"
                         title="Clear image"
                       >
                         <Trash2 className="h-5 w-5 text-white" />
@@ -239,7 +253,7 @@ export function PredictScreen() {
 
                 <div className="flex space-x-4">
                   <Button
-                    className="flex-1 py-6"
+                    className="flex-1 py-6 cursor-pointer"
                     onClick={() =>
                       document.getElementById("file-upload")?.click()
                     }
@@ -261,7 +275,7 @@ export function PredictScreen() {
 
                   <Button
                     variant="outline"
-                    className="flex-1 py-6 bg-white/10 border-white/20 hover:bg-white/20"
+                    className="flex-1 py-6 bg-white/10 border-white/20 hover:bg-white/20 cursor-pointer"
                     onClick={clearData}
                   >
                     <Trash2 className="h-5 w-5 mr-2" />
@@ -296,11 +310,11 @@ export function PredictScreen() {
                       <div className="flex justify-between items-center mb-2">
                         <span className="text-white/80">Confidence:</span>
                         <span className="font-semibold">
-                          {Number.parseFloat(data.confidence).toFixed(1)}%
+                          {confidencePercentage.toFixed(1)}%
                         </span>
                       </div>
                       <Progress
-                        value={Number.parseFloat(data.confidence)}
+                        value={confidencePercentage}
                         className="h-2 mt-2"
                       />
                     </div>

@@ -9,6 +9,7 @@ import { TipOfTheDay } from "@/components/tip-of-the-day";
 import { MainNav } from "@/components/main-nav";
 
 export function AboutScreen() {
+  const currentYear = new Date().getFullYear();
   return (
     <div className="min-h-screen bg-gradient text-white">
       <MainNav />
@@ -55,13 +56,13 @@ export function AboutScreen() {
               <div className="h-px bg-white/20 my-6"></div>
 
               <h2 className="text-xl font-semibold mb-4">Contact Us</h2>
-              <div className="space-y-3 mb-6">
+              <div className="flex flex-col space-y-3 mb-6">
                 <Link href="mailto:troylegacy256@gmail.com">
                   <Button
                     variant="outline"
                     className="w-full bg-white/10 border-white/20 hover:bg-white/20"
                   >
-                    <Mail className="h-4 w-4 mr-2" />
+                    <Mail className="h-4 w-4" />
                     Email: troylegacy256@gmail.com
                   </Button>
                 </Link>
@@ -71,7 +72,7 @@ export function AboutScreen() {
                     variant="outline"
                     className="w-full bg-white/10 border-white/20 hover:bg-white/20"
                   >
-                    <Globe className="h-4 w-4 mr-2" />
+                    <Globe className="h-4 w-4 " />
                     Visit our website
                   </Button>
                 </Link>
@@ -82,7 +83,7 @@ export function AboutScreen() {
               <div className="text-center text-white/70">
                 <p className="text-sm mb-1">Version 1.0.0</p>
                 <p className="text-sm">
-                  © 2024 TroyLegacy. All rights reserved.
+                  © {currentYear} TroyLegacy. All rights reserved.
                 </p>
               </div>
             </CardContent>

@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Home, Leaf, Camera, Bookmark, Info, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import Image from "next/image";
 
 export function MainNav() {
   const pathname = usePathname();
@@ -38,6 +39,14 @@ export function MainNav() {
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
+            <div className="relative w-8 h-8">
+              <Image
+                src="/logo1.png"
+                alt="Potato Doctor Logo"
+                fill
+                className="object-contain"
+              />
+            </div>
             <span className="font-bold text-xl">Legacy Potato Doctor</span>
           </Link>
 
@@ -84,7 +93,10 @@ export function MainNav() {
               className="bg-zinc-900 border-zinc-800 text-white p-0"
             >
               <div className="flex flex-col h-full">
-                <div className="p-4 border-b border-white/10">
+                <div className="p-4 border-b border-white/10 flex items-center space-x-2">
+                  <div className="relative w-6 h-6">
+                    <Image src="/logo1.png" alt="Potato Doctor Logo" fill className="object-contain" />
+                  </div>
                   <span className="font-bold text-xl">Potato Doctor</span>
                 </div>
                 <nav className="flex flex-col p-4 space-y-1">
