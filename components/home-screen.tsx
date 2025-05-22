@@ -21,7 +21,7 @@ export function HomeScreen() {
           className="flex flex-col items-center mb-8"
         >
           <Image
-            src="/logo.png"
+            src="/logo1.png"
             alt="Potato Disease Classifier Logo"
             width={100}
             height={100}
