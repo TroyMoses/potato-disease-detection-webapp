@@ -118,7 +118,7 @@ export function HomeScreen() {
           className="flex flex-col space-y-4"
         >
           <Link href="/predict">
-            <Button className="w-full py-6 text-lg" size="lg">
+            <Button className="w-full py-6 text-lg cursor-pointer" size="lg">
               Start Detection
             </Button>
           </Link>
@@ -126,7 +126,7 @@ export function HomeScreen() {
           <Link href="/about">
             <Button
               variant="outline"
-              className="w-full py-6 text-lg bg-white/10 border-white/20 hover:bg-white/20"
+              className="w-full py-6 text-lg bg-white/10 border-white/20 hover:bg-white/20 cursor-pointer"
               size="lg"
             >
               About the App

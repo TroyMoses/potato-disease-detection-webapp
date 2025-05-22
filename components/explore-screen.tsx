@@ -135,7 +135,7 @@ export function ExploreScreen() {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="bg-white/10 border-white/20 hover:bg-white/20"
+                          className="bg-white/10 border-white/20 hover:bg-white/20 cursor-pointer"
                           onClick={() => setSelectedDisease(disease)}
                         >
                           <Info className="h-4 w-4 mr-2" />
@@ -149,8 +149,8 @@ export function ExploreScreen() {
                           size="sm"
                           className={
                             isBookmarked(disease.id)
-                              ? "bg-blue-600 hover:bg-blue-700"
-                              : "bg-white/10 border-white/20 hover:bg-white/20"
+                              ? "bg-blue-600 hover:bg-blue-700 cursor-pointer"
+                              : "bg-white/10 border-white/20 hover:bg-white/20 cursor-pointer"
                           }
                           onClick={() => handleBookmark(disease)}
                         >
@@ -180,14 +180,14 @@ export function ExploreScreen() {
           onOpenChange={(open) => !open && setSelectedDisease(null)}
         >
           {selectedDisease && (
-            <DialogContent className="max-w-3xl bg-zinc-900 border-zinc-800 text-white">
-              <DialogHeader>
+            <DialogContent className="max-w-3xl bg-zinc-900 border-zinc-800 text-white max-h-[90vh] flex flex-col">
+              <DialogHeader className="flex-shrink-0">
                 <DialogTitle className="text-2xl">
                   {selectedDisease.name}
                 </DialogTitle>
               </DialogHeader>
 
-              <div className="relative w-full h-64 my-4">
+              <div className="relative w-full h-64 my-4 flex-shrink-0">
                 <Image
                   src={selectedDisease.imageUrl || "/placeholder.svg"}
                   alt={selectedDisease.name}
@@ -196,17 +196,17 @@ export function ExploreScreen() {
                 />
               </div>
 
-              <ScrollArea className="max-h-[300px] pr-4">
+              <ScrollArea className="flex-grow overflow-auto pr-4 mb-4">
                 <div className="whitespace-pre-line">
                   {selectedDisease.full}
                 </div>
               </ScrollArea>
 
-              <div className="flex justify-between mt-4">
+              <div className="flex justify-between mt-2 pt-4 border-t border-white/10 flex-shrink-0">
                 <Button
                   variant="outline"
                   onClick={() => setSelectedDisease(null)}
-                  className="bg-white/10 border-white/20 hover:bg-white/20"
+                  className="bg-white/10 border-white/20 hover:bg-white/20 cursor-pointer"
                 >
                   Close
                 </Button>
@@ -217,8 +217,8 @@ export function ExploreScreen() {
                   }
                   className={
                     isBookmarked(selectedDisease.id)
-                      ? "bg-blue-600 hover:bg-blue-700"
-                      : "bg-white/10 border-white/20 hover:bg-white/20"
+                      ? "bg-blue-600 hover:bg-blue-700 cursor-pointer"
+                      : "bg-white/10 border-white/20 hover:bg-white/20 cursor-pointer"
                   }
                   onClick={() => handleBookmark(selectedDisease)}
                 >

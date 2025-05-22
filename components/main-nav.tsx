@@ -38,7 +38,7 @@ export function MainNav() {
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
-            <span className="font-bold text-xl">Potato Doctor</span>
+            <span className="font-bold text-xl">Legacy Potato Doctor</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -51,7 +51,7 @@ export function MainNav() {
                 <Link key={item.href} href={item.href}>
                   <Button
                     variant="ghost"
-                    className={`relative px-3 ${
+                    className={`relative px-3 cursor-pointer ${
                       isActive
                         ? "text-white"
                         : "text-white/70 hover:text-white hover:bg-white/10"

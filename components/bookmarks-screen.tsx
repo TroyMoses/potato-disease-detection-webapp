@@ -27,7 +27,7 @@ import { TipOfTheDay } from "@/components/tip-of-the-day";
 import { MainNav } from "@/components/main-nav";
 import { useBookmarks } from "@/context/bookmark-context";
 import { diseases } from "@/data/disease-data";
-import { toast } from "sonner"
+import { toast } from "sonner";
 
 export function BookmarksScreen() {
   const { bookmarks, toggleBookmark } = useBookmarks();
@@ -109,7 +109,7 @@ export function BookmarksScreen() {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="bg-white/10 border-white/20 hover:bg-white/20"
+                          className="bg-white/10 border-white/20 hover:bg-white/20 cursor-pointer"
                           onClick={() => setSelectedDisease(disease)}
                         >
                           <Info className="h-4 w-4 mr-2" />
@@ -119,6 +119,7 @@ export function BookmarksScreen() {
                         <Button
                           variant="destructive"
                           size="sm"
+                          className="cursor-pointer"
                           onClick={() => handleRemoveBookmark(disease)}
                         >
                           <Trash2 className="h-4 w-4 mr-2" />
@@ -138,14 +139,14 @@ export function BookmarksScreen() {
           onOpenChange={(open) => !open && setSelectedDisease(null)}
         >
           {selectedDisease && (
-            <DialogContent className="max-w-3xl bg-zinc-900 border-zinc-800 text-white">
-              <DialogHeader>
+            <DialogContent className="max-w-3xl bg-zinc-900 border-zinc-800 text-white max-h-[90vh] flex flex-col">
+              <DialogHeader className="flex-shrink-0">
                 <DialogTitle className="text-2xl">
                   {selectedDisease.name}
                 </DialogTitle>
               </DialogHeader>
 
-              <div className="relative w-full h-64 my-4">
+              <div className="relative w-full h-64 my-4 flex-shrink-0">
                 <Image
                   src={selectedDisease.imageUrl || "/placeholder.svg"}
                   alt={selectedDisease.name}
@@ -154,19 +155,21 @@ export function BookmarksScreen() {
                 />
               </div>
 
-              <ScrollArea className="max-h-[300px] pr-4">
+              <ScrollArea className="flex-grow overflow-auto pr-4 mb-4">
                 <div className="whitespace-pre-line">
                   {selectedDisease.full}
                 </div>
               </ScrollArea>
 
-              <Button
-                variant="outline"
-                onClick={() => setSelectedDisease(null)}
-                className="mt-4 bg-white/10 border-white/20 hover:bg-white/20"
-              >
-                Close
-              </Button>
+              <div className="flex justify-between mt-2 pt-4 border-t border-white/10 flex-shrink-0">
+                <Button
+                  variant="outline"
+                  onClick={() => setSelectedDisease(null)}
+                  className="bg-white/10 border-white/20 hover:bg-white/20 cursor-pointer"
+                >
+                  Close
+                </Button>
+              </div>
             </DialogContent>
           )}
         </Dialog>
