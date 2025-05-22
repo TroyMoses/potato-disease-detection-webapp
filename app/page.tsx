@@ -1,9 +1,5 @@
-import { ImageUpload } from "@/components/image-upload";
+import { HomeScreen } from "@/components/home-screen";
 
 export default function Home() {
-  return (
-    <main>
-      <ImageUpload />
-    </main>
-  );
+  return <HomeScreen />;
 }
