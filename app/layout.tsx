@@ -8,7 +8,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Legacy Potato Disease Detection",
+  title: "Potato Disease Detection",
   description: "Detect your potato diseases early, and control them in time.",
 };
 

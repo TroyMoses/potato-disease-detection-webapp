@@ -45,7 +45,11 @@ export function ImageUpload() {
         typeof res.data.values === "string"
       ) {
         setData({
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
           class: res.data.class,
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
           confidence: res.data.confidence,
         });
       }
@@ -92,7 +96,7 @@ export function ImageUpload() {
   };
 
   const confidence = data
-    ? (Number.parseFloat(data.confidence) * 100).toFixed(2)
+    ? (Number.parseFloat(data.confidence) * 100).toFixed(6)
     : "0";
 
   return (
