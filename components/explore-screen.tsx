@@ -26,7 +26,7 @@ export function ExploreScreen() {
     (typeof diseases)[0] | null
   >(null);
   const [isLoading, setIsLoading] = useState(false);
-  const { bookmarks, toggleBookmark, isBookmarked } = useBookmarks();
+  const { toggleBookmark, isBookmarked } = useBookmarks();
 
   // Filter diseases based on search query
   const filteredDiseases = diseases.filter(
@@ -82,6 +82,8 @@ export function ExploreScreen() {
               <button
                 onClick={() => setSearchQuery("")}
                 className="absolute right-3 top-1/2 transform -translate-y-1/2"
+                title="Clear search"
+                aria-label="Clear search"
               >
                 <X className="h-4 w-4 text-gray-400" />
               </button>

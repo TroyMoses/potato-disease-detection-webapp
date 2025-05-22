@@ -14,9 +14,6 @@ import { MainNav } from "@/components/main-nav";
 import { toast } from "sonner";
 import axios from "axios";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
-
 type AnalysisResult = {
   class: string;
   confidence: string;
@@ -74,9 +71,17 @@ export function PredictScreen() {
       });
 
       if (res.status === 200) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         setData(res.data);
         toast.success("Analysis Complete", {
-          description: `Detected: ${res.data.class} with ${Number.parseFloat(
+          description: `Detected: ${
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
+            res.data.class
+          } with ${Number.parseFloat(
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
             res.data.confidence
           ).toFixed(1)}% confidence`,
           duration: 3000,
@@ -141,11 +146,21 @@ export function PredictScreen() {
         url: process.env.NEXT_PUBLIC_API_URL ?? "",
         data: formData,
       });
-    
+
       if (res.status === 200) {
-        setData(res.data);
+        setData(
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
+          res.data
+        );
         toast.success("Analysis Complete", {
-          description: `Detected: ${res.data.class} with ${Number.parseFloat(
+          description: `Detected: ${
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
+            res.data.class
+          } with ${Number.parseFloat(
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
             res.data.confidence
           ).toFixed(1)}% confidence`,
           duration: 3000,
@@ -167,7 +182,7 @@ export function PredictScreen() {
       analyzeImage();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedFile, preview])
+  }, [selectedFile, preview]);
 
   return (
     <div className="min-h-screen bg-gradient text-white">
@@ -204,6 +219,7 @@ export function PredictScreen() {
                       <button
                         onClick={clearData}
                         className="absolute top-2 right-2 bg-black/50 p-2 rounded-full"
+                        title="Clear image"
                       >
                         <Trash2 className="h-5 w-5 text-white" />
                       </button>
@@ -231,12 +247,16 @@ export function PredictScreen() {
                     <Upload className="h-5 w-5 mr-2" />
                     Upload Image
                   </Button>
+                  <label htmlFor="file-upload" className="sr-only">
+                    Upload Image
+                  </label>
                   <input
                     id="file-upload"
                     type="file"
                     accept="image/*"
                     className="hidden"
                     onChange={handleFileChange}
+                    title="Upload Image"
                   />
 
                   <Button
