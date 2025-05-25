@@ -13,7 +13,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Potato Disease Classifier",
+  title: "Legacy Potato Doctor",
   description: "Identify potato plant diseases instantly with AI",
 };
 
