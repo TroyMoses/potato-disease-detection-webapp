@@ -28,7 +28,7 @@ export function HomeScreen() {
             className="mb-4"
           />
           <h1 className="text-3xl md:text-4xl font-bold text-center">
-            Potato Disease Detection
+            Legacy Potato Doctor
           </h1>
           <p className="text-lg text-gray-300 mt-2 text-center">
             Identify potato plant diseases instantly with AI.
