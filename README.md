@@ -1,8 +1,8 @@
-# 🥔 Potato Disease Classifier
+# 🥔 Legacy Potato Doctor
 
 A modern, AI-powered web application for identifying potato plant diseases using advanced image recognition technology. Built with Next.js, TypeScript, and Tailwind CSS.
 
-![Potato Disease Classifier](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)
+![Legacy Potato Doctor](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-38B2AC?style=for-the-badge&logo=tailwind-css)
 
