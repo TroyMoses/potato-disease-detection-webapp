@@ -13,7 +13,7 @@ import { Toaster } from "sonner";
 // });
 
 export const metadata: Metadata = {
-  title: "Legacy Potato Doctor",
+  title: "AgricTech Ai",
   description: "Identify potato plant diseases instantly with AI",
 };
 

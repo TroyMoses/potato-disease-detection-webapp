@@ -26,7 +26,7 @@ export function AboutScreen() {
             <CardContent className="p-6 md:p-8">
               <h1 className="text-2xl font-bold mb-4">About the App</h1>
               <p className="text-white/90 mb-6">
-                This app helps farmers identify common potato diseases using AI
+                This app helps farmers identify common potato diseases using AgriTech AI
                 and image recognition. Users can upload a picture of a potato
                 plant and get instant predictions.
               </p>
@@ -57,17 +57,17 @@ export function AboutScreen() {
 
               <h2 className="text-xl font-semibold mb-4">Contact Us</h2>
               <div className="flex flex-col space-y-3 mb-6">
-                <Link href="mailto:troylegacy256@gmail.com">
+                <Link href="mailto:info@shiningstarsvvumba.com">
                   <Button
                     variant="outline"
                     className="w-full bg-white/10 border-white/20 hover:bg-white/20"
                   >
                     <Mail className="h-4 w-4" />
-                    Email: troylegacy256@gmail.com
+                    Email: info@shiningstarsvvumba.com
                   </Button>
                 </Link>
 
-                <Link href="https://troylegacy.vercel.app" target="_blank">
+                <Link href="https://club-shin.vercel.app" target="_blank">
                   <Button
                     variant="outline"
                     className="w-full bg-white/10 border-white/20 hover:bg-white/20"
@@ -83,7 +83,7 @@ export function AboutScreen() {
               <div className="text-center text-white/70">
                 <p className="text-sm mb-1">Version 1.0.0</p>
                 <p className="text-sm">
-                  © {currentYear} TroyLegacy. All rights reserved.
+                  © {currentYear} Shining Stars Club. All rights reserved.
                 </p>
               </div>
             </CardContent>

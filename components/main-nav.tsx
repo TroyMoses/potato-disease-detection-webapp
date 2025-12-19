@@ -47,7 +47,7 @@ export function MainNav() {
                 className="object-contain"
               />
             </div>
-            <span className="font-bold text-xl">Legacy Potato Doctor</span>
+            <span className="font-bold text-xl">AgriTech Ai Potato Doctor</span>
           </Link>
 
           {/* Desktop Navigation */}
